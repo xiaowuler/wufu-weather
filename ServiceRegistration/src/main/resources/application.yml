@@ -1,4 +1,3 @@
-#¶Ë¿ÚºÅ
 server:
   port: 5555
 eureka:
@@ -7,4 +6,4 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
-    registry-fetch-interval-seconds: 30
+    registry-fetch-interval-seconds: 60
