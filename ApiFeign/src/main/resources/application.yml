@@ -1,0 +1,21 @@
+server:
+  port: 5557
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:5555/eureka/
+spring:
+  application:
+    name: ApiFeign
+feign:
+  compression:
+    request:
+      enabled: true
+      min-request-size: 2048
+    response:
+      enabled: true
+  httpclient:
+    enabled: true
+

@@ -1,0 +1,25 @@
+server:
+  port: 5556
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:5555/eureka/
+spring:
+  application:
+    name: UserClient
+  datasource:
+    url: jdbc:mysql://112.124.40.88:3306/wufu_weather?characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+mybatis:
+   mapper-locations: classpath*:mapper/*.xml #mapper文件扫描
+#   type-aliases-package: com.nanjing.weather.domain 别名扫描
+pagehelper:
+    helper-dialect: mysql
+    reasonable: true
+    support-methods-arguments: true
+    params: count==countSql
+    page-size-zero: true
