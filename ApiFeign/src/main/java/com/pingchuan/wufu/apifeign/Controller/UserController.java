@@ -5,11 +5,14 @@ import com.pingchuan.Model.User;
 import com.pingchuan.wufu.apifeign.Service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(description = "物流接口")
+@Api(description = "用户接口")
 @RestController
 public class UserController {
 
@@ -21,9 +24,13 @@ public class UserController {
         return userService.findAllByPage(pageNum, pageSize);
     }
 
-    @ApiOperation(value = "物流接口非第三方接口",notes = "物流接口非第三方接口",httpMethod = "GET")
-    @RequestMapping("/verification")
-    public User verification(String username, String password){
+    @ApiOperation(value = "根据用户信息校验用户",notes = "非第三方接口",httpMethod = "POST")
+    @PostMapping("/verification")
+    public User verification(
+            @ApiParam(name="username",value = "用户名称",required = true)
+            @RequestParam("username") String username,
+            @ApiParam(name="password",value = "用户密码",required = true)
+            @RequestParam("password") String password){
         return userService.findOneByUsernameAndPassword(username, password);
     }
 }
