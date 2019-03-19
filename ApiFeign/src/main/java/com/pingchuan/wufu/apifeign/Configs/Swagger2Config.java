@@ -7,6 +7,7 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -33,16 +34,16 @@ public class Swagger2Config {
 
     //构建 api文档的详细信息函数
     private ApiInfo apiInfo() {
+        Contact contact = new Contact("xiaowuler", "", "xiaowuler@163.com");
         return new ApiInfoBuilder()
                 //页面标题
                 .title("芜湖气象局 接口文档")
                 //创建人
-                .contact("xiaowuler")
+                .contact(contact)
                 //版本号
                 .version("1.0")
                 //描述
                 .description("芜湖气象局 后台接口文档")
                 .build();
     }
-
 }
